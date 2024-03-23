@@ -37,10 +37,12 @@ import { url } from '../lib/data.js';
 										fill="currentColor"
 										viewBox="0 0 20 20"
 										xmlns="http://www.w3.org/2000/svg"
-										><path
+									>
+										<path
 											fill-rule="evenodd"
 											d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-											clip-rule="evenodd"></path></svg
+											clip-rule="evenodd"></path>
+									</svg
 									>
 								</div>
 								<input
@@ -80,13 +82,12 @@ import { url } from '../lib/data.js';
 							href={url('dashboard')}
 							class="flex items-center p-2 text-base text-gray-900 rounded-lg hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700"
 						>
-							<svg
-								class="w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
-								fill="currentColor"
-								viewBox="0 0 18 18"
-								xmlns="http://www.w3.org/2000/svg"
-								><path d="M7.75 0C5.95507 0 4.5 1.45507 4.5 3.25V3.75C4.5 5.54493 5.95507 7 7.75 7H8.25C10.0449 7 11.5 5.54493 11.5 3.75V3.25C11.5 1.45507 10.0449 0 8.25 0H7.75ZM6 3.25C6 2.2835 6.7835 1.5 7.75 1.5H8.25C9.2165 1.5 10 2.2835 10 3.25V3.75C10 4.7165 9.2165 5.5 8.25 5.5H7.75C6.7835 5.5 6 4.7165 6 3.75V3.25ZM2.5 14.5V13.1709C3.31958 11.5377 4.99308 10.5 6.82945 10.5H9.17055C11.0069 10.5 12.6804 11.5377 13.5 13.1709V14.5H2.5ZM6.82945 9C4.35483 9 2.10604 10.4388 1.06903 12.6857L1 12.8353V13V15.25V16H1.75H14.25H15V15.25V13V12.8353L14.931 12.6857C13.894 10.4388 11.6452 9 9.17055 9H6.82945Z"></path></svg
-							>
+							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+									 stroke="currentColor"
+									 class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white">
+								<path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6a7.5 7.5 0 1 0 7.5 7.5h-7.5V6Z" />
+								<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5H21A7.5 7.5 0 0 0 13.5 3v7.5Z" />
+							</svg>
 							<span class="ml-3" sidebar-toggle-item>Dashboard</span>
 						</a>
 					</li>
@@ -94,8 +95,70 @@ import { url } from '../lib/data.js';
 						<button
 							type="button"
 							class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700"
-							aria-controls="dropdown-layouts"
-							data-collapse-toggle="dropdown-layouts"
+							aria-controls="dropdown-workers"
+							data-collapse-toggle="dropdown-workers"
+						>
+							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+									 stroke="currentColor"
+									 class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white">
+								<path stroke-linecap="round" stroke-linejoin="round"
+											d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+							</svg>
+
+							<span
+								class="flex-1 ml-3 text-left whitespace-nowrap"
+								sidebar-toggle-item>Trabajadores</span
+							>
+							<svg
+								sidebar-toggle-item
+								class="w-6 h-6"
+								fill="currentColor"
+								viewBox="0 0 20 20"
+								xmlns="http://www.w3.org/2000/svg"
+							>
+								<path
+									fill-rule="evenodd"
+									d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+									clip-rule="evenodd"></path>
+							</svg
+							>
+						</button>
+						<ul id="dropdown-workers" class="hidden space-y-2 py-2">
+							<!-- if not (eq .Params.group crud) }}hidden {{ end }} -->
+							<li>
+								<!-- {{ if eq $page_slug "products" }} -->
+								<!-- bg-gray-100 dark:bg-gray-700 -->
+								<!-- bg-gray-100 dark:bg-gray-700 -->
+								<a
+									href={url('trabajadores/lista')}
+									class="text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700"
+								>Lista</a
+								>
+							</li>
+							<li>
+								<!--  {{ if eq $page_slug "users" }} -->
+								<!-- bg-gray-100 dark:bg-gray-700 -->
+								<a
+									href={url('trabajadores/asignaciones')}
+									class="text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700"
+								>Asignaciones</a
+								>
+							</li>
+							<li>
+								<!--  {{ if eq $page_slug "users" }} -->
+								<!-- bg-gray-100 dark:bg-gray-700 -->
+								<a
+									href={url('trabajadores/roles')}
+									class="text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700"
+								>Roles</a
+								>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a
+							href={url('clientes')}
+							class="flex items-center p-2 text-base text-gray-900 rounded-lg hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700"
 						>
 							<svg
 								class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
@@ -108,45 +171,13 @@ import { url } from '../lib/data.js';
 									d="M2.5 3.25C2.5 1.45507 3.95507 0 5.75 0H6.25C8.04493 0 9.5 1.45507 9.5 3.25V3.75C9.5 5.54493 8.04493 7 6.25 7H5.75C3.95507 7 2.5 5.54493 2.5 3.75V3.25ZM5.75 1.5C4.7835 1.5 4 2.2835 4 3.25V3.75C4 4.7165 4.7835 5.5 5.75 5.5H6.25C7.2165 5.5 8 4.7165 8 3.75V3.25C8 2.2835 7.2165 1.5 6.25 1.5H5.75ZM1.5 14.5V13.1709C2.31958 11.5377 3.99308 10.5 5.82945 10.5H6.17055C8.00692 10.5 9.68042 11.5377 10.5 13.1709V14.5H1.5ZM5.82945 9C3.35483 9 1.10604 10.4388 0.0690305 12.6857L0 12.8353V13V15.25V16H0.75H11.25H12V15.25V13V12.8353L11.931 12.6857C10.894 10.4388 8.64517 9 6.17055 9H5.82945ZM15.931 12.6857C15.3706 11.4715 14.4561 10.4931 13.3439 9.85058L12.5935 11.1494C13.399 11.6148 14.0681 12.3101 14.5 13.1709V14.5H13.5V16H15.25H16V15.25V13V12.8352L15.931 12.6857ZM11.25 0H10.5V1.5H11.25C12.2165 1.5 13 2.2835 13 3.25V3.75C13 4.7165 12.2165 5.5 11.25 5.5H10.5V7H11.25C13.0449 7 14.5 5.54493 14.5 3.75V3.25C14.5 1.45507 13.0449 0 11.25 0Z"
 								></path>
 							</svg>
-							<span
-								class="flex-1 ml-3 text-left whitespace-nowrap"
-								sidebar-toggle-item>Clientes</span
-							>
-							<svg
-								sidebar-toggle-item
-								class="w-6 h-6"
-								fill="currentColor"
-								viewBox="0 0 20 20"
-								xmlns="http://www.w3.org/2000/svg"
-								><path
-									fill-rule="evenodd"
-									d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-									clip-rule="evenodd"></path></svg
-							>
-						</button>
-						<ul id="dropdown-layouts" class="hidden py-2 space-y-2">
-							<li>
-								<a
-									href={url('layouts/stacked')}
-									class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700"
-									>Stacked</a
-								>
-							</li>
-							<li>
-								<a
-									href={url('layouts/sidebar')}
-									class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700"
-									>Sidebar</a
-								>
-							</li>
-						</ul>
+							<span class="ml-3" sidebar-toggle-item>Clientes</span>
+						</a>
 					</li>
 					<li>
-						<button
-							type="button"
-							class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700"
-							aria-controls="dropdown-crud"
-							data-collapse-toggle="dropdown-crud"
+						<a
+							href={url('rutas')}
+							class="flex items-center p-2 text-base text-gray-900 rounded-lg hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700"
 						>
 							<svg
 								class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
@@ -161,129 +192,42 @@ import { url } from '../lib/data.js';
 									d="M7.53033 0.719661L7 0.189331L5.93934 1.24999L6.46967 1.78032L6.68934 1.99999H3.375C1.51104 1.99999 0 3.51103 0 5.37499C0 7.23895 1.51104 8.74999 3.375 8.74999H12.625C13.6605 8.74999 14.5 9.58946 14.5 10.625C14.5 11.6605 13.6605 12.5 12.625 12.5H4.88555C4.56698 11.4857 3.61941 10.75 2.5 10.75C1.11929 10.75 0 11.8693 0 13.25C0 14.6307 1.11929 15.75 2.5 15.75C3.61941 15.75 4.56698 15.0143 4.88555 14H12.625C14.489 14 16 12.489 16 10.625C16 8.76103 14.489 7.24999 12.625 7.24999H3.375C2.33947 7.24999 1.5 6.41052 1.5 5.37499C1.5 4.33946 2.33947 3.49999 3.375 3.49999H6.68934L6.46967 3.71966L5.93934 4.24999L7 5.31065L7.53033 4.78032L8.85355 3.4571C9.24408 3.06657 9.24408 2.43341 8.85355 2.04288L7.53033 0.719661ZM2.5 14.25C3.05228 14.25 3.5 13.8023 3.5 13.25C3.5 12.6977 3.05228 12.25 2.5 12.25C1.94772 12.25 1.5 12.6977 1.5 13.25C1.5 13.8023 1.94772 14.25 2.5 14.25ZM14.5 2.74999C14.5 3.30228 14.0523 3.74999 13.5 3.74999C12.9477 3.74999 12.5 3.30228 12.5 2.74999C12.5 2.19771 12.9477 1.74999 13.5 1.74999C14.0523 1.74999 14.5 2.19771 14.5 2.74999ZM16 2.74999C16 4.1307 14.8807 5.24999 13.5 5.24999C12.1193 5.24999 11 4.1307 11 2.74999C11 1.36928 12.1193 0.249991 13.5 0.249991C14.8807 0.249991 16 1.36928 16 2.74999Z"
 								></path>
 							</svg>
-							<span
-								class="flex-1 ml-3 text-left whitespace-nowrap"
-								sidebar-toggle-item>Rutas/Destinos</span
-							>
-							<svg
-								sidebar-toggle-item
-								class="w-6 h-6"
-								fill="currentColor"
-								viewBox="0 0 20 20"
-								xmlns="http://www.w3.org/2000/svg"
-								><path
-									fill-rule="evenodd"
-									d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-									clip-rule="evenodd"></path></svg
-							>
-						</button>
-						<ul id="dropdown-crud" class="hidden space-y-2 py-2">
-							<!-- if not (eq .Params.group crud) }}hidden {{ end }} -->
-							<li>
-								<!-- {{ if eq $page_slug "products" }} -->
-								<!-- bg-gray-100 dark:bg-gray-700 -->
-								<a
-									href={url('crud/products')}
-									class="text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700"
-									>Products</a
-								>
-							</li>
-							<li>
-								<!--  {{ if eq $page_slug "users" }} -->
-								<!-- bg-gray-100 dark:bg-gray-700 -->
-								<a
-									href={url('crud/users')}
-									class="text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700"
-									>Users</a
-								>
-							</li>
-						</ul>
+							<span class="ml-3" sidebar-toggle-item>Rutas/Destinos</span>
+						</a>
 					</li>
 					<li>
 						<!-- {{ if eq $page_slug "settings" }} -->
 						<a
-							href={url('settings')}
+							href={url('servicios')}
 							class="flex items-center p-2 text-base text-gray-900 rounded-lg hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700"
 						>
 							<svg
 								class="w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
-								fill="currentColor"
-								viewBox="0 0 18 18"
-								xmlns="http://www.w3.org/2000/svg"
-								aria-hidden="true"
-							>
-								<path
-									clip-rule="evenodd"
-									fill-rule="evenodd"
-									d="M0 1H0.75H5C6.2267 1 7.31583 1.58901 8 2.49963C8.68417 1.58901 9.7733 1 11 1H15.25H16V1.75V13V13.75H15.25H10.7426C10.1459 13.75 9.57361 13.9871 9.15165 14.409L8.53033 15.0303H7.46967L6.84835 14.409C6.42639 13.9871 5.8541 13.75 5.25736 13.75H0.75H0V13V1.75V1ZM7.25 4.75C7.25 3.50736 6.24264 2.5 5 2.5H1.5V12.25H5.25736C5.96786 12.25 6.65758 12.4516 7.25 12.8232V4.75ZM8.75 12.8232V4.75C8.75 3.50736 9.75736 2.5 11 2.5H14.5V12.25H10.7426C10.0321 12.25 9.34242 12.4516 8.75 12.8232Z"
-								></path>
+								aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+								viewBox="0 0 24 24">
+								<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+											d="M14 17h6m-3 3v-6M4.857 4h4.286c.473 0 .857.384.857.857v4.286a.857.857 0 0 1-.857.857H4.857A.857.857 0 0 1 4 9.143V4.857C4 4.384 4.384 4 4.857 4Zm10 0h4.286c.473 0 .857.384.857.857v4.286a.857.857 0 0 1-.857.857h-4.286A.857.857 0 0 1 14 9.143V4.857c0-.473.384-.857.857-.857Zm-10 10h4.286c.473 0 .857.384.857.857v4.286a.857.857 0 0 1-.857.857H4.857A.857.857 0 0 1 4 19.143v-4.286c0-.473.384-.857.857-.857Z" />
 							</svg>
+
 							<span class="ml-3" sidebar-toggle-item>Servicios</span>
 						</a>
 					</li>
 					<li>
-						<button
-							type="button"
-							class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700"
-							aria-controls="dropdown-pages"
-							data-collapse-toggle="dropdown-pages"
+						<!-- {{ if eq $page_slug "settings" }} -->
+						<a
+							href={url('vehiculos')}
+							class="flex items-center p-2 text-base text-gray-900 rounded-lg hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700"
 						>
-							<svg
-								class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
-								fill="currentColor"
-								viewBox="0 0 20 20"
-								xmlns="http://www.w3.org/2000/svg"
-								><path
-									fill-rule="evenodd"
-									d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm2 10a1 1 0 10-2 0v3a1 1 0 102 0v-3zm2-3a1 1 0 011 1v5a1 1 0 11-2 0v-5a1 1 0 011-1zm4-1a1 1 0 10-2 0v7a1 1 0 102 0V8z"
-									clip-rule="evenodd"></path></svg
-							>
-							<span
-								class="flex-1 ml-3 text-left whitespace-nowrap"
-								sidebar-toggle-item>Vehiculos</span
-							>
-							<svg
-								sidebar-toggle-item
-								class="w-6 h-6"
-								fill="currentColor"
-								viewBox="0 0 20 20"
-								xmlns="http://www.w3.org/2000/svg"
-								><path
-									fill-rule="evenodd"
-									d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-									clip-rule="evenodd"></path></svg
-							>
-						</button>
-						<ul id="dropdown-pages" class="hidden py-2 space-y-2">
-							<li>
-								<a
-									href={url('pages/pricing')}
-									class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700"
-									>Pricing</a
-								>
-							</li>
-							<li>
-								<a
-									href={url('pages/maintenance')}
-									class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700"
-									>Maintenance</a
-								>
-							</li>
-							<li>
-								<a
-									href={url('pages/404')}
-									class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700"
-									>404 not found</a
-								>
-							</li>
-							<li>
-								<a
-									href={url('pages/500')}
-									class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700"
-									>500 server error</a
-								>
-							</li>
-						</ul>
+
+							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+									 stroke="currentColor"
+									 class="w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white">
+								<path stroke-linecap="round" stroke-linejoin="round"
+											d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 0 0-3.213-9.193 2.056 2.056 0 0 0-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 0 0-10.026 0 1.106 1.106 0 0 0-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
+							</svg>
+
+							<span class="ml-3" sidebar-toggle-item>Vehiculos</span>
+						</a>
 					</li>
 					<li>
 						<button
@@ -293,15 +237,13 @@ import { url } from '../lib/data.js';
 							data-collapse-toggle="dropdown-auth"
 						>
 							<svg
-								class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
-								fill="currentColor"
-								viewBox="0 0 22 22"
-								xmlns="http://www.w3.org/2000/svg"
-								><path
-									fill-rule="evenodd"
-									d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"
-									clip-rule="evenodd"></path></svg
-							>
+								class="w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
+								aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+								viewBox="0 0 24 24">
+								<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+											d="M4 10h16m-8-3V4M7 7V4m10 3V4M5 20h14a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1Zm3-7h.01v.01H8V13Zm4 0h.01v.01H12V13Zm4 0h.01v.01H16V13Zm-8 4h.01v.01H8V17Zm4 0h.01v.01H12V17Zm4 0h.01v.01H16V17Z" />
+							</svg>
+
 							<span
 								class="flex-1 ml-3 text-left whitespace-nowrap"
 								sidebar-toggle-item>Reservaciones</span
@@ -312,57 +254,38 @@ import { url } from '../lib/data.js';
 								fill="currentColor"
 								viewBox="0 0 20 20"
 								xmlns="http://www.w3.org/2000/svg"
-								><path
+							>
+								<path
 									fill-rule="evenodd"
 									d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-									clip-rule="evenodd"></path></svg
+									clip-rule="evenodd"></path>
+							</svg
 							>
 						</button>
 						<ul id="dropdown-auth" class="hidden py-2 space-y-2">
 							<li>
 								<a
-									href={url('playground/sidebar')}
+									href={url('reservations/NewReservation')}
 									class="text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700"
-									>Shuttles</a
+								>Nueva reservación</a
 								>
 							</li>
 							<li>
 								<a
-									href={url('playground/sidebar')}
+									href={url('reservations/ViewReservations')}
 									class="text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700"
-									>Tours</a
-								>
-							</li>
-							<li>
-								<a
-									href={url('playground/sidebar')}
-									class="text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700"
-									>Pick-Up</a
-								>
-							</li>
-							<li>
-								<a
-									href={url('playground/sidebar')}
-									class="text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700"
-									>Detalles</a
-								>
-							</li>
-							<li>
-								<a
-									href={url('authentication/profile-lock')}
-									class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700"
-									>Profile lock</a
+								>Ver Reservaciones</a
 								>
 							</li>
 						</ul>
 					</li>
 					<li>
-						<button
-							type="button"
-							class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700"
-							aria-controls="dropdown-playground"
-							data-collapse-toggle="dropdown-playground"
+						<!-- {{ if eq $page_slug "settings" }} -->
+						<a
+							href={url('vehiculos')}
+							class="flex items-center p-2 text-base text-gray-900 rounded-lg hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700"
 						>
+
 							<svg
 								class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
 								fill="currentColor"
@@ -376,55 +299,11 @@ import { url } from '../lib/data.js';
 									d="M8 14.5C11.5899 14.5 14.5 11.5899 14.5 8C14.5 4.41015 11.5899 1.5 8 1.5C4.41015 1.5 1.5 4.41015 1.5 8C1.5 11.5899 4.41015 14.5 8 14.5ZM8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16ZM8.62499 3.375V4V4.375H9C10.1736 4.375 11.125 5.3264 11.125 6.5H9.875C9.875 6.01675 9.48325 5.625 9 5.625H8.62499V7.375H9C10.1736 7.375 11.125 8.3264 11.125 9.5C11.125 10.6736 10.1736 11.625 9 11.625H8.62499V12V12.625H7.37499V12V11.625H7C5.8264 11.625 4.875 10.6736 4.875 9.5H6.125C6.125 9.98325 6.51675 10.375 7 10.375H7.37499V8.625H7C5.8264 8.625 4.875 7.6736 4.875 6.5C4.875 5.3264 5.8264 4.375 7 4.375H7.37499V4V3.375H8.62499ZM7.37499 5.625H7C6.51675 5.625 6.125 6.01675 6.125 6.5C6.125 6.98325 6.51675 7.375 7 7.375H7.37499V5.625ZM8.62499 8.625V10.375H9C9.48325 10.375 9.875 9.98325 9.875 9.5C9.875 9.01675 9.48325 8.625 9 8.625H8.62499Z"
 								></path>
 							</svg>
-							<span
-								class="flex-1 ml-3 text-left whitespace-nowrap"
-								sidebar-toggle-item>Caja</span
-							>
-							<svg
-								sidebar-toggle-item
-								class="w-6 h-6"
-								fill="currentColor"
-								viewBox="0 0 20 20"
-								xmlns="http://www.w3.org/2000/svg"
-								><path
-									fill-rule="evenodd"
-									d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-									clip-rule="evenodd"></path></svg
-							>
-						</button>
-						<!--  {{ if not (eq .Params.group "playground") }}hidden {{ end }} -->
-						<ul id="dropdown-playground" class="hidden space-y-2 py-2">
-							<li>
-								<!-- {{ if eq $page_slug "stacked" }} -->
-								<!--  bg-gray-100 dark:bg-gray-700 -->
-								<a
-									href={url('playground/stacked')}
-									class="text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700"
-									>Stacked</a
-								>
-								<!-- <a
-									href={url('playground/kitchen-sink')}
-									class="text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700"
-									>Kitchen Sink</a
-								> -->
-							</li>
-							<li>
-								<!-- {{ if eq $page_slug "sidebar" }} -->
-								<!--  bg-gray-100 dark:bg-gray-700 -->
-								<a
-									href={url('playground/sidebar')}
-									class="text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700"
-									>Sidebar</a
-								>
-								<a
-									href={url('playground/data')}
-									class="text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700"
-									>API data</a
-								>
-							</li>
-						</ul>
+
+							<span class="ml-3" sidebar-toggle-item>Caja</span>
+						</a>
 					</li>
-				<!--	Egresos-->
+					<!--	Egresos-->
 					<li>
 						<button
 							type="button"
@@ -467,9 +346,11 @@ import { url } from '../lib/data.js';
 					fill="currentColor"
 					viewBox="0 0 20 20"
 					xmlns="http://www.w3.org/2000/svg"
-					><path
+				>
+					<path
 						d="M5 4a1 1 0 00-2 0v7.268a2 2 0 000 3.464V16a1 1 0 102 0v-1.268a2 2 0 000-3.464V4zM11 4a1 1 0 10-2 0v1.268a2 2 0 000 3.464V16a1 1 0 102 0V8.732a2 2 0 000-3.464V4zM16 3a1 1 0 011 1v7.268a2 2 0 010 3.464V16a1 1 0 11-2 0v-1.268a2 2 0 010-3.464V4a1 1 0 011-1z"
-					></path></svg
+					></path>
+				</svg
 				>
 			</a>
 			<a
@@ -482,10 +363,12 @@ import { url } from '../lib/data.js';
 					fill="currentColor"
 					viewBox="0 0 20 20"
 					xmlns="http://www.w3.org/2000/svg"
-					><path
+				>
+					<path
 						fill-rule="evenodd"
 						d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z"
-						clip-rule="evenodd"></path></svg
+						clip-rule="evenodd"></path>
+				</svg
 				>
 			</a>
 			<div
@@ -506,27 +389,51 @@ import { url } from '../lib/data.js';
 					xmlns="http://www.w3.org/2000/svg"
 					xmlns:xlink="http://www.w3.org/1999/xlink"
 					viewBox="0 0 3900 3900"
-					><path fill="#b22234" d="M0 0h7410v3900H0z"></path><path
+				>
+					<path fill="#b22234" d="M0 0h7410v3900H0z"></path>
+					<path
 						d="M0 450h7410m0 600H0m0 600h7410m0 600H0m0 600h7410m0 600H0"
 						stroke="#fff"
-						stroke-width="300"></path><path fill="#3c3b6e" d="M0 0h2964v2100H0z"
-					></path><g fill="#fff"
-						><g id="d"
-							><g id="c"
-								><g id="e"
-									><g id="b"
-										><path
+						stroke-width="300"></path>
+					<path fill="#3c3b6e" d="M0 0h2964v2100H0z"
+					></path>
+					<g fill="#fff"
+					>
+						<g id="d"
+						>
+							<g id="c"
+							>
+								<g id="e"
+								>
+									<g id="b"
+									>
+										<path
 											id="a"
 											d="M247 90l70.534 217.082-184.66-134.164h228.253L176.466 307.082z"
-										></path><use xlink:href="#a" y="420"></use><use
+										></path>
+										<use xlink:href="#a" y="420"></use>
+										<use
 											xlink:href="#a"
-											y="840"></use><use xlink:href="#a" y="1260"></use></g
-									><use xlink:href="#a" y="1680"></use></g
-								><use xlink:href="#b" x="247" y="210"></use></g
-							><use xlink:href="#c" x="494"></use></g
-						><use xlink:href="#d" x="988"></use><use xlink:href="#c" x="1976"
-						></use><use xlink:href="#e" x="2470"></use></g
-					></svg
+											y="840"></use>
+										<use xlink:href="#a" y="1260"></use>
+									</g
+									>
+									<use xlink:href="#a" y="1680"></use>
+								</g
+								>
+								<use xlink:href="#b" x="247" y="210"></use>
+							</g
+							>
+							<use xlink:href="#c" x="494"></use>
+						</g
+						>
+						<use xlink:href="#d" x="988"></use>
+						<use xlink:href="#c" x="1976"
+						></use>
+						<use xlink:href="#e" x="2470"></use>
+					</g
+					>
+				</svg
 				>
 			</button>
 			<!-- Dropdown -->
@@ -681,13 +588,15 @@ import { url } from '../lib/data.js';
 <script>
 	const sidebar = document.getElementById('sidebar');
 
-	if (sidebar) {
+	if (sidebar)
+	{
 		const toggleSidebarMobile = (
 			sidebar: HTMLElement,
 			sidebarBackdrop: HTMLElement,
 			toggleSidebarMobileHamburger: HTMLElement,
 			toggleSidebarMobileClose: HTMLElement,
-		) => {
+		) =>
+		{
 			sidebar.classList.toggle('hidden');
 			sidebarBackdrop.classList.toggle('hidden');
 			toggleSidebarMobileHamburger.classList.toggle('hidden');
@@ -708,7 +617,8 @@ import { url } from '../lib/data.js';
 			'toggleSidebarMobileSearch',
 		)!;
 
-		toggleSidebarMobileSearch?.addEventListener('click', () => {
+		toggleSidebarMobileSearch?.addEventListener('click', () =>
+		{
 			toggleSidebarMobile(
 				sidebar,
 				sidebarBackdrop,
@@ -717,7 +627,8 @@ import { url } from '../lib/data.js';
 			);
 		});
 
-		toggleSidebarMobileEl?.addEventListener('click', () => {
+		toggleSidebarMobileEl?.addEventListener('click', () =>
+		{
 			toggleSidebarMobile(
 				sidebar,
 				sidebarBackdrop,
@@ -726,7 +637,8 @@ import { url } from '../lib/data.js';
 			);
 		});
 
-		sidebarBackdrop?.addEventListener('click', () => {
+		sidebarBackdrop?.addEventListener('click', () =>
+		{
 			toggleSidebarMobile(
 				sidebar,
 				sidebarBackdrop,
