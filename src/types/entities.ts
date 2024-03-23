@@ -1,9 +1,3 @@
-import type { endpointsToOperations } from '../pages/api/[...entity].js';
-import type { playgroundActions } from '../pages/playground/_actions.js';
-
-export type EndpointsToOperations = typeof endpointsToOperations;
-export type Endpoint = keyof EndpointsToOperations;
-
 export type Products = Product[];
 export interface Product {
 	name: string;
@@ -26,5 +20,3 @@ export interface User {
 	country: string;
 	status: string;
 }
-
-export type PlaygroundAction = (typeof playgroundActions)[number];
