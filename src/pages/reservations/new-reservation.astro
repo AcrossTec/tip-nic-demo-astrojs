@@ -1,6 +1,8 @@
 ---
 import LayoutSidebar from '../../app/LayoutSidebar.astro';
 import { url } from "../../lib/data";
+
+import { type IReservation } from "../../types/entities";
 ---
 
 <LayoutSidebar>
@@ -232,19 +234,49 @@ import { url } from "../../lib/data";
 </LayoutSidebar>
 
 <script>
-	var sendButton = document.getElementById('send-button');
-	var cancelButton = document.getElementById('cancel-button');
-	
-	sendButton.addEventListener('click', function() {
-		alert('Reservación creada con éxito');
+	import { insertReservation } from "../../services";
+
+	const sendButton = document.getElementById('send-button');
+	const cancelButton = document.getElementById('cancel-button');
+
+	// save the reservation
+	sendButton.addEventListener('click', () => {
+		const name = (document.getElementById('name') as HTMLInputElement).value;
+		const payment = (document.getElementById('payment') as HTMLInputElement).value;
+		const commission = (document.getElementById('commission') as HTMLInputElement).value;
+		const customerServices = (document.getElementById('customer-services') as HTMLInputElement).value;
+		const date = (document.getElementById('counter') as HTMLInputElement).value;
+		const pax = (document.getElementById('pax') as HTMLInputElement).value;
+		const observations = (document.getElementById('observations') as HTMLInputElement).value;
+		const tour = (document.getElementById('tour') as HTMLInputElement).value;
+		const time = (document.getElementById('time-picker') as HTMLInputElement).value;
+		const withGuide = (document.getElementById('with-guide') as HTMLInputElement).checked;
+
+		let reservation: IReservation = {
+			reservationId: "1",
+			name: name,
+			payment: parseFloat(payment),
+			commission: parseFloat(commission),
+			customerServices: customerServices,
+			date: date,
+			pax: pax,
+			observations: observations,
+			tour: tour,
+			time: time,
+			withGuide: withGuide
+		};
+
+		insertReservation(reservation);
+		
+		// reload the page
+		location.reload();
 	});
-	
+
 	// reload the page on cancel
 	cancelButton.addEventListener('click', function() {
-		
+
 		// ask for confirmation
-		if (confirm('¿Estás seguro de cancelar la reservación?')) {
+		if (confirm('¿Estás seguro de cancelar la reservación?'))
 			location.reload();
-		}
 	});
 </script>
