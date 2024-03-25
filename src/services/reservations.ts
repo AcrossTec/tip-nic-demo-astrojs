@@ -46,10 +46,23 @@ export function deleteReservation(reservationId: string)
 	window.localStorage.setItem('reservations', JSON.stringify(reservations));
 }
 
-export function updateReservation(reservation: IReservation)
+export function updateReservation(reservationId: string, updatedReservation: IReservation)
 {
-	let ReservationList = getReservations();
-	ReservationList = ReservationList.map((r) => (r.reservationId === reservation.reservationId ? reservation : r));
-	const jsonString = JSON.stringify(ReservationList);
-	window.localStorage.setItem('reservations', jsonString);
+	// obtengo las reservas del localStorage
+	const reservations = getReservations();
+
+	// busco el índice de la reserva que quiero actualizar
+	let index = reservations.findIndex(reservation => reservation.reservationId === reservationId);
+
+	// si la reserva existe, la actualizo
+	if (index !== -1) {
+			// mantengo el mismo reservationId
+			updatedReservation.reservationId = reservationId;
+			reservations[index] = updatedReservation;
+
+			// guardo las reservas actualizadas en el localStorage
+			window.localStorage.setItem('reservations', JSON.stringify(reservations));
+	} else {
+			console.error(`Reservation with ID ${reservationId} not found.`);
+	}
 }

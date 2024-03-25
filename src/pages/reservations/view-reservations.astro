@@ -49,7 +49,7 @@ import LayoutSidebar from "../../app/LayoutSidebar.astro";
 							<th scope="col" class="px-4 py-3">No.</th>
 							<th scope="col" class="px-4 py-3">Cliente</th>
 							<th scope="col" class="px-4 py-3">Servicio</th>
-							<th scope="col" class="px-4 py-3">Caja</th>
+							<th scope="col" class="px-4 py-3">Fecha</th>
 							<th scope="col" class="px-4 py-3">Ganacia</th>
 							<th scope="col" class="px-4 py-3">Comisión</th>
 							<th scope="col" class="px-4 py-3">Observaciones</th>
@@ -123,13 +123,33 @@ import LayoutSidebar from "../../app/LayoutSidebar.astro";
 
 </LayoutSidebar>
 
+<!-- Modal -->
+<div id="editModal" class="hidden fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50">
+  <div class="bg-white p-4 rounded max-w-lg mx-auto">
+    <h2 class="text-lg font-bold mb-2">Editar Reservación</h2>
+    <form id="editForm" onsubmit="event.preventDefault(); updateReservationHandler(reservationId.value)" class="space-y-4">
+			<input id="reservationId" type="hidden" placeholder="Id" class="w-full p-2 border border-gray-300 rounded">
+      <input id="name" type="text" placeholder="Cliente" class="w-full p-2 border border-gray-300 rounded">
+      <input id="customerServices" type="text" placeholder="Servicio" class="w-full p-2 border border-gray-300 rounded">
+      <input id="date" datepicker datepicker-format="mm/dd/yyyy" type="text" placeholder="Fecha" class="w-full p-2 border border-gray-300 rounded">
+      <input id="profits" type="text" placeholder="Ganancias" class="w-full p-2 border border-gray-300 rounded">
+      <input id="commission" type="text" placeholder="Comisión" class="w-full p-2 border border-gray-300 rounded">
+      <input id="observations" type="text" placeholder="Observaciones" class="w-full p-2 border border-gray-300 rounded">
+      <div class="flex justify-between">
+				<button type="submit" class="w-full p-2 bg-blue-500 text-white rounded mr-2">Guardar</button>
+        <button type="button" onclick="cancelEdit()" class="w-full p-2 bg-red-500 text-white rounded">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
 <script>
-	import { getReservations } from "../../services";
-	import { deleteReservation } from "../../services";
+	import { getReservations, deleteReservation, updateReservation } from "../../services";
 
 	let tbody = document.getElementById('tbody');
 	
 	const reservations = getReservations();
+	let currentReservationId;
 	
 	reservations.forEach(reservation => {
 		tbody.insertAdjacentHTML('beforeend', `<tr class="border-b dark:border-gray-700">
@@ -157,12 +177,11 @@ import LayoutSidebar from "../../app/LayoutSidebar.astro";
                     <ul class="py-1 text-sm text-gray-700 dark:text-gray-200"
                         aria-labelledby="benq-ex2710q-dropdown-button">
                       <li>
-                        <a href="#"
-                           class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Edit</a>
+                        <button onclick="editReservationHandler('${reservation.reservationId}')" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Editar</a>
                       </li>
                     </ul>
                     <div class="py-1">
-                      <button onclick="deleteReservationHandler('${reservation.reservationId}')" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Delete</a>
+                      <button onclick="deleteReservationHandler('${reservation.reservationId}')" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Eliminar</a>
                     </div>
                   </div>
                 </td>
@@ -172,7 +191,40 @@ import LayoutSidebar from "../../app/LayoutSidebar.astro";
 
 	window.deleteReservationHandler = function(id) {
         deleteReservation(id);
+				alert('Reservación eliminada con éxito');
         window.location.reload();
-    }
+  }
+
+	window.editReservationHandler = function(id) {
+    document.getElementById('editModal').classList.remove('hidden');
+    // Aquí puedes obtener la reservación a editar
+    const reservation = reservations.find(res => res.reservationId === id);
+		currentReservationId = id
+    // Aquí puedes llenar el formulario con los datos de la reservación
+    document.getElementById('name').value = reservation.name;
+    document.getElementById('customerServices').value = reservation.customerServices;
+    document.getElementById('date').value = reservation.date;
+    document.getElementById('profits').value = reservation.payment;
+    document.getElementById('commission').value = reservation.commission;
+    document.getElementById('observations').value = reservation.observations;
+  }
+
+	window.cancelEdit = function() {
+    document.getElementById('editModal').classList.add('hidden');
+  }
+
+  window.updateReservationHandler = function() {
+    const updatedReservation = {
+      name: document.getElementById('name').value,
+      customerServices: document.getElementById('customerServices').value,
+      date: document.getElementById('date').value,
+      payment: document.getElementById('profits').value,
+      commission: document.getElementById('commission').value,
+      observations: document.getElementById('observations').value,
+    };
+    updateReservation(currentReservationId, updatedReservation);
+		alert('Reservación actualizada con éxito');
+    window.location.reload();
+  }
 </script>
 
