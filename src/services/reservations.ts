@@ -15,10 +15,19 @@ export function insertReservation(reservation: IReservation)
 {
 	const ReservationList = getReservations();
 
-	// eslint-disable-next-line no-param-reassign
-	reservation.reservationId = `RESV-0${ReservationList.length + 1}`;
+	// Obtengo el último ID de reserva
+	let maxId = Number(window.localStorage.getItem('maxReservationId')) || 0;
 
-	// save in the localstorage browser
+	// Incremento el ID
+	maxId += 1;
+
+	// Guardo el nuevo ID
+	window.localStorage.setItem('maxReservationId', String(maxId));
+
+	// Asigno el nuevo ID a la reserva
+	reservation.reservationId = `RESV-0${maxId}`;
+
+	// Agrego la nueva reserva a la lista en el localstorage del navegador
 	ReservationList.push(reservation);
 	const jsonString = JSON.stringify(ReservationList);
 
@@ -27,10 +36,14 @@ export function insertReservation(reservation: IReservation)
 
 export function deleteReservation(reservationId: string)
 {
-	let ReservationList = getReservations();
-	ReservationList = ReservationList.filter((r) => r.reservationId !== reservationId);
-	const jsonString = JSON.stringify(ReservationList);
-	window.localStorage.setItem('reservations', jsonString);
+	// obtengo las reservas del localStorage
+	let reservations = getReservations();
+
+	// filtro las reservas para eliminar la que tiene el id proporcionado
+	reservations = reservations.filter(reservation => reservation.reservationId !== reservationId);
+
+	// guardo las reservas actualizadas en el localStorage
+	window.localStorage.setItem('reservations', JSON.stringify(reservations));
 }
 
 export function updateReservation(reservation: IReservation)
