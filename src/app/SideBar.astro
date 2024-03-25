@@ -1,7 +1,5 @@
 ---
 /* eslint max-lines: 'off' */
-
-import { url } from '../lib/data.js';
 ---
 
 <!-- TODO: Dynamic dropdowns -->
@@ -27,7 +25,7 @@ import { url } from '../lib/data.js';
 				<ul class="pb-2 space-y-2">
 					<li>
 						<a
-							href={url()}
+							href='/'
 							class="flex items-center p-2 text-base text-gray-900 rounded-lg hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700"
 						>
 							<svg
@@ -49,7 +47,7 @@ import { url } from '../lib/data.js';
 					</li>
 					<li>
 						<a
-							href={url('dashboard')}
+							href='/dashboard'
 							class="flex items-center p-2 text-base text-gray-900 rounded-lg hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700"
 						>
 							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -100,7 +98,7 @@ import { url } from '../lib/data.js';
 								<!-- bg-gray-100 dark:bg-gray-700 -->
 								<!-- bg-gray-100 dark:bg-gray-700 -->
 								<a
-									href={url('trabajadores/lista')}
+									href='/trabajadores/lista'
 									class="text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700"
 								>Lista</a
 								>
@@ -109,7 +107,7 @@ import { url } from '../lib/data.js';
 								<!--  {{ if eq $page_slug "users" }} -->
 								<!-- bg-gray-100 dark:bg-gray-700 -->
 								<a
-									href={url('trabajadores/asignaciones')}
+									href='/trabajadores/asignaciones'
 									class="text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700"
 								>Asignaciones</a
 								>
@@ -118,7 +116,7 @@ import { url } from '../lib/data.js';
 								<!--  {{ if eq $page_slug "users" }} -->
 								<!-- bg-gray-100 dark:bg-gray-700 -->
 								<a
-									href={url('trabajadores/roles')}
+									href='/trabajadores/roles'
 									class="text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700"
 								>Roles</a
 								>
@@ -127,7 +125,7 @@ import { url } from '../lib/data.js';
 					</li>
 					<li>
 						<a
-							href={url('clientes')}
+							href='/clientes'
 							class="flex items-center p-2 text-base text-gray-900 rounded-lg hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700"
 						>
 							<svg
@@ -146,7 +144,7 @@ import { url } from '../lib/data.js';
 					</li>
 					<li>
 						<a
-							href={url('rutas')}
+							href='/rutas'
 							class="flex items-center p-2 text-base text-gray-900 rounded-lg hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700"
 						>
 							<svg
@@ -168,7 +166,7 @@ import { url } from '../lib/data.js';
 					<li>
 						<!-- {{ if eq $page_slug "settings" }} -->
 						<a
-							href={url('servicios')}
+							href='/servicios'
 							class="flex items-center p-2 text-base text-gray-900 rounded-lg hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700"
 						>
 							<svg
@@ -185,7 +183,7 @@ import { url } from '../lib/data.js';
 					<li>
 						<!-- {{ if eq $page_slug "settings" }} -->
 						<a
-							href={url('vehiculos')}
+							href='/vehiculos'
 							class="flex items-center p-2 text-base text-gray-900 rounded-lg hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700"
 						>
 
@@ -235,14 +233,14 @@ import { url } from '../lib/data.js';
 						<ul id="dropdown-auth" class="hidden py-2 space-y-2">
 							<li>
 								<a
-									href={url('reservations/new-reservation')}
+									href='/reservations/new-reservation'
 									class="text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700"
 								>Nueva reservación</a
 								>
 							</li>
 							<li>
 								<a
-									href={url('reservations/view-reservations')}
+									href='/reservations/view-reservations'
 									class="text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700"
 								>Ver Reservaciones</a
 								>
@@ -252,7 +250,7 @@ import { url } from '../lib/data.js';
 					<li>
 						<!-- {{ if eq $page_slug "settings" }} -->
 						<a
-							href={url('vehiculos')}
+							href='/vehiculos'
 							class="flex items-center p-2 text-base text-gray-900 rounded-lg hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700"
 						>
 

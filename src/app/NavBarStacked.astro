@@ -1,5 +1,4 @@
 ---
-import { asset, url } from '../lib/data.js';
 ---
 
 <nav
@@ -8,7 +7,7 @@ import { asset, url } from '../lib/data.js';
 	<div class="container py-3 mx-auto">
 		<div class="flex items-center justify-between">
 			<div class="flex items-center justify-start">
-				<a href={url()} class="flex mr-4">
+				<a href='/' class="flex mr-4">
 					<!--<img-->
 					<!--	src={asset('images/logo.svg')}-->
 					<!--	class="h-8 mr-3"-->
@@ -16,14 +15,14 @@ import { asset, url } from '../lib/data.js';
 					<!--/>-->
 					<span
 						class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
-						>TripNic</span
+					>TripNic</span
 					>
 				</a>
 				<div class="hidden sm:flex sm:ml-6">
 					<ul class="flex space-x-8">
 						<li>
 							<a
-								href={url()}
+								href=''
 								class="text-sm font-medium text-gray-700 hover:text-primary-700 dark:text-gray-400 dark:hover:text-primary-500"
 								aria-current="page">Inicio</a
 							>
@@ -37,7 +36,7 @@ import { asset, url } from '../lib/data.js';
 						</li>
 						<li>
 							<a
-								href={url('reservations/view-reservations')}
+								href='/reservations/view-reservations'
 								class="text-sm font-medium text-gray-700 hover:text-primary-700 dark:text-gray-400 dark:hover:text-primary-500"
 								aria-current="page">Reservaciones</a
 							>
@@ -117,28 +116,28 @@ import { asset, url } from '../lib/data.js';
 				<a
 					href="#"
 					class="block py-2 pl-3 pr-4 text-base font-normal text-gray-900 bg-gray-100 dark:bg-gray-700 dark:text-white"
-					>Dashboard</a
+				>Dashboard</a
 				>
 			</li>
 			<li>
 				<a
 					href="#"
 					class="block px-3 py-2 text-base font-normal text-gray-600 border-b border-gray-100 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-900 dark:border-gray-700 dark:hover:bg-gray-700 dark:text-gray-400 dark:hover:text-white"
-					>Equipo</a
+				>Equipo</a
 				>
 			</li>
 			<li>
 				<a
 					href="#"
 					class="block px-3 py-2 text-base font-normal text-gray-600 border-b border-gray-100 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-900 dark:border-gray-700 dark:hover:bg-gray-700 dark:text-gray-400 dark:hover:text-white"
-					>Reservaciones</a
+				>Reservaciones</a
 				>
 			</li>
 			<li>
 				<a
 					href="#"
 					class="block px-3 py-2 text-base font-normal text-gray-600 border-b border-gray-100 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-900 dark:border-gray-700 dark:hover:bg-gray-700 dark:text-gray-400 dark:hover:text-white"
-					>Calendario
+				>Calendario
 				</a>
 			</li>
 			<li class="block">
